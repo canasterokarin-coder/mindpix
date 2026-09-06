@@ -1,0 +1,167 @@
+Crea una página web completa, moderna e interactiva llamada **MINDPIX**, desarrollada con HTML, CSS y JavaScript.
+
+MINDPIX es un proyecto escolar individual de grado décimo que busca ayudar a las personas a identificar cómo se sienten y realizar actividades sencillas de relajación. La página debe funcionar principalmente desde un celular y tener un diseño profesional, limpio, juvenil y fácil de utilizar.
+
+### 1. PÁGINA DE INICIO
+
+Crear una pantalla de bienvenida con:
+
+* Logo/nombre: **MINDPIX 🧠**
+* Eslogan: **“Conoce, expresa y comprende cómo te sientes.”**
+* Una breve explicación de que MINDPIX permite identificar un estado emocional y encontrar una actividad sencilla para sentirse mejor.
+* Botón grande: **“Comenzar”**
+
+### 2. SELECCIÓN DE EMOCIONES
+
+Al presionar “Comenzar”, mostrar:
+
+**¿Cómo te sientes hoy?**
+
+Crear tarjetas grandes e interactivas para:
+
+* 😊 Feliz
+* 😢 Triste
+* 😡 Enojado/a
+* 😰 Ansioso/a
+* 😴 Cansado/a
+
+Cada tarjeta debe tener un emoji, nombre, pequeña animación al pasar el cursor o tocarla y un diseño agradable.
+
+### 3. RESULTADO
+
+Cuando el usuario seleccione una emoción, mostrar una pantalla personalizada.
+
+Por ejemplo:
+
+**“Hoy te sientes 😊 Feliz”**
+
+Debajo mostrar un mensaje breve relacionado con la emoción y una recomendación sencilla.
+
+Incluir un botón:
+
+**“Quiero sentirme mejor”**
+
+que lleve a una actividad recomendada.
+
+### 4. RESPIRACIÓN GUIADA
+
+Crear una sección llamada:
+
+**🫁 Respira conmigo**
+
+Mostrar un círculo grande animado que:
+
+* Se expanda lentamente durante la inhalación.
+* Se mantenga unos segundos.
+* Se reduzca lentamente durante la exhalación.
+
+Mostrar textos que cambien automáticamente:
+
+**INHALA**
+
+**MANTÉN**
+
+**EXHALA**
+
+Incluir un contador de respiraciones y un botón:
+
+**“Iniciar”**
+
+y otro:
+
+**“Detener”**
+
+La animación debe ser suave y funcionar correctamente en celular.
+
+### 5. CONEXIÓN CON EL DISPOSITIVO FÍSICO
+
+Crear una sección llamada:
+
+**💡 MINDPIX físico**
+
+Explicar visualmente que la página puede comunicarse con un dispositivo compuesto por:
+
+* ESP32
+* Matriz LED 8×8 MAX7219
+
+Mostrar un esquema visual:
+
+**Celular → Página web → Wi-Fi → ESP32 → Matriz LED 8×8**
+
+Añadir una sección que indique:
+
+**“Lo que ves aquí también puede representarse en el dispositivo físico.”**
+
+Por ejemplo:
+
+😊 Feliz → la matriz muestra una cara feliz.
+
+😢 Triste → la matriz muestra una cara triste.
+
+😡 Enojado/a → la matriz muestra una cara enojada.
+
+😴 Cansado/a → la matriz muestra una cara de sueño.
+
+🫁 Respiración → la matriz muestra una animación de expansión y contracción.
+
+Por ahora, crear las funciones de conexión como una estructura preparada para posteriormente conectar el ESP32. No simular una conexión real si no existe.
+
+### 6. HISTORIAL / ESTADÍSTICAS
+
+Crear una sección llamada:
+
+**📊 Mi día**
+
+Guardar temporalmente en el navegador las emociones seleccionadas utilizando localStorage.
+
+Mostrar:
+
+* Número de emociones registradas.
+* Emoción seleccionada con mayor frecuencia.
+* Un pequeño resumen del día.
+
+Incluir un botón:
+
+**“Borrar historial”**
+
+### 7. DISEÑO
+
+El diseño debe ser:
+
+* Moderno.
+* Minimalista.
+* Juvenil.
+* Profesional.
+* Adaptado principalmente a celulares.
+* Responsive para computador y tablet.
+* Con tarjetas redondeadas.
+* Botones grandes y fáciles de tocar.
+* Animaciones suaves.
+* Buena separación entre elementos.
+* Tipografía moderna y fácil de leer.
+
+Utilizar una paleta agradable relacionada con bienestar y tecnología, evitando que parezca una página médica.
+
+### 8. NAVEGACIÓN
+
+Crear una barra de navegación sencilla con:
+
+**Inicio | Emociones | Respiración | Mi día | MINDPIX físico**
+
+En celular debe convertirse en un menú cómodo y fácil de utilizar.
+
+### 9. IMPORTANTE
+
+Todo el contenido debe estar en **español**.
+
+No utilizar información médica ni hacer diagnósticos. MINDPIX solamente debe presentarse como una herramienta tecnológica para identificar estados emocionales y realizar actividades sencillas de relajación.
+
+Organiza correctamente los archivos:
+
+* `index.html`
+* `style.css`
+* `script.js`
+
+El código debe estar limpio, comentado y ser fácil de modificar posteriormente.
+
+La página debe funcionar al abrirla y no debe depender de librerías innecesarias.

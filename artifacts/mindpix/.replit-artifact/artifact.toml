@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "MINDPIX"
+description = "Una experiencia web móvil y juvenil para identificar emociones, practicar respiración guiada y visualizar cómo el proyecto puede conectarse con un dispositivo físico ESP32 y una matriz LED 8×8."
+version = "1.0.0"
+id = "artifacts/mindpix"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21920
+
+[services.development]
+run = "pnpm --filter @workspace/mindpix run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mindpix", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/mindpix/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21920"
+BASE_PATH = "/"

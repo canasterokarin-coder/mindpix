@@ -2,7 +2,20 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, Check, ChevronRight, CircleStop, Cpu, Grid3X3, Heart, Menu, MonitorSmartphone, Sparkles, Trash2, Wifi, Wind, X } from 'lucide-react';
 import './index.css';
 
-type EmotionKey = 'feliz' | 'triste' | 'enojado' | 'ansioso' | 'cansado';
+type EmotionKey =
+  | 'feliz'
+  | 'triste'
+  | 'enojado'
+  | 'ansioso'
+  | 'cansado'
+  | 'enamorado'
+  | 'desagrado'
+  | 'emocionado'
+  | 'aburrido'
+  | 'fastidiado'
+  | 'sorprendido'
+  | 'frustrado'
+  | 'desilusionado';
 
 type Emotion = {
   key: EmotionKey;
@@ -28,6 +41,14 @@ const emotions: Emotion[] = [
   { key: 'enojado', label: 'Enojado/a', emoji: '😠', note: 'Algo me está rebasando', message: 'Tu enojo está tratando de decirte algo. Primero bajemos un poco la intensidad, después podrás escuchar qué necesita.' },
   { key: 'ansioso', label: 'Ansioso/a', emoji: '😰', note: 'Mi mente va muy rápido', message: 'Vuelve a este instante, sin exigirte calma inmediata. Un ritmo lento puede ser un buen primer paso.' },
   { key: 'cansado', label: 'Cansado/a', emoji: '😴', note: 'Me vendría bien una pausa', message: 'Tu energía también merece cuidado. Hoy avanzar despacio cuenta, y descansar no es perder el tiempo.' },
+  { key: 'enamorado', label: 'Enamorado/a', emoji: '😍', note: 'Mi corazón está brillando', message: 'Hay algo que te mueve por dentro y se siente especial. Disfruta esta emoción con calma y a tu propio ritmo.' },
+  { key: 'desagrado', label: 'Desagrado', emoji: '🤢', note: 'Algo no me está haciendo bien', message: 'Puedes reconocer lo que no te gusta sin juzgarte. Toma distancia de lo que puedas y vuelve a lo que te haga sentir seguro/a.' },
+  { key: 'emocionado', label: 'Emocionado/a', emoji: '🤩', note: 'Tengo mucha energía', message: 'Qué bonito cuando algo despierta tanta ilusión. Haz una pausa para disfrutarla y elegir hacia dónde quieres llevarla.' },
+  { key: 'aburrido', label: 'Aburrido/a', emoji: '🥱', note: 'Necesito algo diferente', message: 'A veces el aburrimiento abre espacio para probar algo nuevo. Empieza con un pequeño cambio, sin presionarte a tenerlo todo claro.' },
+  { key: 'fastidiado', label: 'Fastidiado/a', emoji: '🙄', note: 'Ya me cansó esta situación', message: 'Es válido necesitar un descanso de lo que te irrita. Aléjate un momento, respira y decide qué sí merece tu energía.' },
+  { key: 'sorprendido', label: 'Sorprendido/a', emoji: '😱', note: 'No me lo esperaba', message: 'Algo cambió el ritmo de tu momento. Date permiso de observar lo que pasó antes de decidir qué significa para ti.' },
+  { key: 'frustrado', label: 'Frustrado/a', emoji: '😤', note: 'No está saliendo como quiero', message: 'Que algo sea difícil no significa que no puedas con ello. Suelta la tensión por un instante y vuelve a intentarlo en un paso pequeño.' },
+  { key: 'desilusionado', label: 'Desilusionado/a', emoji: '😓', note: 'Esperaba que fuera distinto', message: 'Cuando algo no sale como imaginabas, es normal necesitar un momento. Puedes reconocer la decepción y darte tiempo para recomenzar.' },
 ];
 
 const navItems = [
@@ -74,7 +95,21 @@ function App() {
   const counts = useMemo(() => emotions.reduce<Record<EmotionKey, number>>((result, emotion) => {
     result[emotion.key] = history.filter((item) => item.emotion === emotion.key).length;
     return result;
-  }, { feliz: 0, triste: 0, enojado: 0, ansioso: 0, cansado: 0 }), [history]);
+  }, {
+    feliz: 0,
+    triste: 0,
+    enojado: 0,
+    ansioso: 0,
+    cansado: 0,
+    enamorado: 0,
+    desagrado: 0,
+    emocionado: 0,
+    aburrido: 0,
+    fastidiado: 0,
+    sorprendido: 0,
+    frustrado: 0,
+    desilusionado: 0,
+  }), [history]);
   const mostFrequent = useMemo(() => {
     if (!history.length) return null;
     return emotions.reduce((current, emotion) => counts[emotion.key] > counts[current.key] ? emotion : current, emotions[0]);
